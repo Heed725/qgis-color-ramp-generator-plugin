@@ -5,6 +5,7 @@ description=Generate QGIS color ramp XML files
 version=1.0
 author=Hemed Lungo
 email=hemedlungo@gmail.com
+repository=https://github.com/Heed725/qgis-color-ramp-generator-plugin
 
 about=Generates color-ramp from hexcode.
 
