@@ -1,0 +1,27 @@
+[general]
+name=QGIS Color Ramp Generator
+qgisMinimumVersion=3.0
+description=Generate QGIS color ramp XML files
+version=1.0
+author=Hemed Lungo
+email=hemedlungo@gmail.com
+
+about=Generates color-ramp from hexcode.
+
+# End of mandatory metadata
+
+# Uncomment the following line and add your changelog:
+# changelog=
+
+# Tags are comma separated with spaces allowed
+tags=style, color ramps
+
+category=Plugins
+icon=icon.png
+# experimental flag
+experimental=False
+
+# deprecated flag (applies to the whole plugin, not just a single version)
+deprecated=False
+
+
