@@ -1,8 +1,8 @@
-# QGIS XML Color Generator Plugin
+# QGIS Color Ramp Generator Plugin
 
 ## Overview
 
-The QGIS XML Color Generator Plugin is a tool designed to simplify the process of creating color palettes for QGIS by generating XML color files. This plugin allows users to easily create custom color schemes that can be imported and used within QGIS projects.
+The QGIS Color Ramp Generator Plugin is a tool designed to simplify the process of creating color palettes for QGIS by generating XML color files. This plugin allows users to easily create custom color schemes that can be imported and used within QGIS projects.
 
 ## Features
 
@@ -21,7 +21,7 @@ The QGIS XML Color Generator Plugin is a tool designed to simplify the process o
 
 1. Open QGIS
 2. Navigate to Plugins → Manage and Install Plugins
-3. Search for "XML Color Generator"
+3. Search for "Color Ramp Generator"
 4. Click "Install Plugin"
 
 ## Usage
