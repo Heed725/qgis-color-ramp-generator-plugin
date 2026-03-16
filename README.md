@@ -1,60 +1,41 @@
 # QGIS Color Ramp Generator Plugin
 
-## Overview
+This plugin has been revamped into a fuller palette workstation for QGIS. It now lets you build multiple ramps in one session, preview transparent colors, import palettes from CSV, export merged QGIS XML, and save individual ramps as GPL palettes.
 
-The QGIS Color Ramp Generator Plugin is a tool designed to simplify the process of creating color palettes for QGIS by generating XML color files. This plugin allows users to easily create custom color schemes that can be imported and used within QGIS projects.
+## What's New
 
-## Features
+- Multi-ramp editor with up to 100 ramp cards
+- Live color swatches for `#RGB`, `#RGBA`, `#RRGGBB`, and `#RRGGBBAA`
+- CSV import with `Palette`/`Name`, `Tags`, and color columns
+- Downloadable CSV template
+- Export all ramps into one QGIS preset-ramp XML file
+- Export any single ramp as a GPL palette
+- Better validation and clearer save dialogs
 
-- Generate XML color files for QGIS
-- Create custom color palettes with ease
-- Streamline the color management process in QGIS
+## Expected CSV Format
 
-## Installation
+The importer reads a header row and looks for:
 
-### Requirements
+- `Palette` or `Name` for the ramp name
+- `Tags` for QGIS ramp tags
+- Any remaining non-empty columns as colors
 
-- QGIS 3.x
-- Python 3.x
+Example:
 
-### Installation Steps
-
-1. Open QGIS
-2. Navigate to Plugins → Manage and Install Plugins
-3. Search for "Color Ramp Generator"
-4. Click "Install Plugin"
+```csv
+Palette,Tags,Color1,Color2,Color3
+stormfront,dresden,#F3CB66,#cb9060,#D5B09A
+```
 
 ## Usage
 
-### Generating a Color Palette
+1. Open the plugin from the QGIS Plugins menu or toolbar.
+2. Add ramps manually or import a CSV file.
+3. Enter colors as comma-separated hex values.
+4. Export one ramp as GPL or export all ramps to a merged QGIS XML file.
 
-1. Open the XML Color Generator Plugin from the QGIS Plugins menu
-2. Choose your color generation method:
-   - Manual color input
-   - Random color generation
-   - Color generation from an existing palette
+## Notes
 
-3. Configure your color preferences
-   - Number of colors
-   - Color ranges
-   - Color distribution
-
-4. Generate the XML file
-5. Save the generated color palette XML file
-
-
-## Support
-
-If you encounter any issues or have questions:
-- Open an issue on the GitHub repository
-- Check the documentation
-- Reach out to the maintainer
-
-## Author
-
-[GitHub Username: Heed725](https://github.com/Heed725)
-
-## Acknowledgments
-
-- QGIS Community
-- Open-source contributors
+- XML output uses QGIS `preset` color ramps.
+- GPL export uses the closest named RGB color for each swatch label.
+- Alpha values are previewed in the UI and preserved in XML export.
