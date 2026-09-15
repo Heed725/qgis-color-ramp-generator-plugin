@@ -1,0 +1,37 @@
+name: Security and quality checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install scanners
+        run: python -m pip install --disable-pip-version-check bandit detect-secrets flake8
+
+      - name: Compile Python files
+        run: python -m compileall -q __init__.py plugin.py
+
+      - name: Run Bandit
+        run: bandit -r . --exclude ./.git -lll -q
+
+      - name: Scan for secrets
+        shell: bash
+        run: |
+          detect-secrets scan --exclude-files '^\.git/' --exclude-files '\.zip$' > secrets-scan.json
+          python -c 'import json; data=json.load(open("secrets-scan.json", encoding="utf-8")); assert not data.get("results"), data["results"]'
+
+      - name: Check Python errors and unused names
+        run: flake8 --select=F --exclude=.git .

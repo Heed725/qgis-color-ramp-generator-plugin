@@ -2,6 +2,8 @@
 
 This plugin has been revamped into a fuller palette workstation for QGIS. It now lets you build multiple ramps in one session, preview transparent colors, import palettes from CSV, export merged QGIS XML, and save individual ramps as GPL palettes.
 
+Version 2.0 supports QGIS 3.x and QGIS 4.x, including both Qt 5 and Qt 6 enum APIs.
+
 ## What's New
 
 - Multi-ramp editor with up to 100 ramp cards
@@ -33,6 +35,8 @@ stormfront,dresden,#F3CB66,#cb9060,#D5B09A
 2. Add ramps manually or import a CSV file.
 3. Enter colors as comma-separated hex values.
 4. Export one ramp as GPL or export all ramps to a merged QGIS XML file.
+
+The toolbar button and the Processing Toolbox algorithm open the same color-ramp editor.
 
 ## Notes
 
