@@ -25,7 +25,7 @@ jobs:
         run: python -m compileall -q __init__.py plugin.py
 
       - name: Run Bandit
-        run: bandit -r . --exclude ./.git -lll -q
+        run: bandit -r . --exclude ./.git -q
 
       - name: Scan for secrets
         shell: bash
@@ -33,5 +33,5 @@ jobs:
           detect-secrets scan --exclude-files '^\.git/' --exclude-files '\.zip$' > secrets-scan.json
           python -c 'import json; data=json.load(open("secrets-scan.json", encoding="utf-8")); assert not data.get("results"), data["results"]'
 
-      - name: Check Python errors and unused names
-        run: flake8 --select=F --exclude=.git .
+      - name: Run Flake8
+        run: flake8 --exclude=.git .

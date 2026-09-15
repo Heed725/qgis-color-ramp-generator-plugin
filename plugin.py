@@ -2,7 +2,7 @@ import csv
 import io
 import os
 import re
-from xml.sax.saxutils import escape
+from html import escape
 
 from qgis.PyQt.QtCore import Qt
 from qgis.PyQt.QtGui import QColor, QIcon, QPainter
@@ -921,8 +921,8 @@ class QGISColorRampGenerator(QMainWindow):
             "<colorramps>",
         ]
         for entry in ramp_entries:
-            ramp_name = escape(entry["ramp_name"], {'"': "&quot;"})
-            ramp_tags = escape(entry["ramp_tags"], {'"': "&quot;"})
+            ramp_name = escape(entry["ramp_name"], quote=True)
+            ramp_tags = escape(entry["ramp_tags"], quote=True)
             lines.append(
                 '<colorramp type="preset" name="{0}" tags="{1}">'.format(
                     ramp_name, ramp_tags

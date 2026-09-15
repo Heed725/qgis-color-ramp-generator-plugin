@@ -24,10 +24,10 @@ jobs:
           set -euo pipefail
           python -m pip install --disable-pip-version-check bandit detect-secrets flake8
           python -m compileall -q __init__.py plugin.py
-          bandit -r . --exclude ./.git -lll -q
+          bandit -r . --exclude ./.git -q
           detect-secrets scan --exclude-files '^\.git/' --exclude-files '\.zip$' > secrets-scan.json
           python -c 'import json; data=json.load(open("secrets-scan.json", encoding="utf-8")); assert not data.get("results"), data["results"]'
-          flake8 --select=F --exclude=.git .
+          flake8 --exclude=.git .
 
       - name: Build QGIS plugin package
         shell: bash
@@ -82,6 +82,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          git tag --force 2.0 "$GITHUB_SHA"
+          git push origin refs/tags/2.0 --force
           notes='Version 2.0 delivers a multi-ramp editor with live RGBA previews, CSV import and template download, individual GPL export, merged QGIS XML export, and matching toolbar and Processing Toolbox access. This release also adds QGIS 3 and QGIS 4 compatibility through Qt 5 and Qt 6 enum handling, removes unused generated UI and resource modules, completes the required repository metadata, and adds automated syntax, security, secret, and code-quality checks together with reproducible release packaging.'
           if gh release view 2.0 >/dev/null 2>&1; then
             gh release upload 2.0 color_ramp-2.0.zip --clobber
