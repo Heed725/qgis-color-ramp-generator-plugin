@@ -2,13 +2,17 @@
 
 [![Security and quality checks](https://github.com/Heed725/qgis-color-ramp-generator-plugin/actions/workflows/security-scan.yml/badge.svg)](https://github.com/Heed725/qgis-color-ramp-generator-plugin/actions/workflows/security-scan.yml)
 [![Release](https://img.shields.io/github/v/release/Heed725/qgis-color-ramp-generator-plugin)](https://github.com/Heed725/qgis-color-ramp-generator-plugin/releases/latest)
+[![QGIS](https://img.shields.io/badge/QGIS-3.x%20%7C%204.x-589632?logo=qgis&logoColor=white)](https://qgis.org/)
+[![Qt](https://img.shields.io/badge/Qt-5%20%7C%206-41CD52?logo=qt&logoColor=white)](https://www.qt.io/)
+[![Downloads](https://img.shields.io/github/downloads/Heed725/qgis-color-ramp-generator-plugin/total)](https://github.com/Heed725/qgis-color-ramp-generator-plugin/releases)
+[![License](https://img.shields.io/github/license/Heed725/qgis-color-ramp-generator-plugin)](LICENSE)
 
 QGIS Color Ramp Generator is a compact palette workstation for creating,
 previewing and exporting reusable QGIS color ramps. Build as many as 100 ramps
 in one session, import palettes from CSV, preview RGB or RGBA colors, and export
 either a combined QGIS style XML file or individual GIMP GPL palettes.
 
-Version 2.0 supports QGIS 3.x and QGIS 4.x through compatible Qt 5 and Qt 6
+Version 0.3 supports QGIS 3.x and QGIS 4.x through compatible Qt 5 and Qt 6
 imports and enum handling. It has no third-party Python dependencies.
 
 ## Features
@@ -26,7 +30,7 @@ imports and enum handling. It has no third-party Python dependencies.
 
 ### Install the release ZIP
 
-1. Download [`color_ramp-2.0.zip`](https://github.com/Heed725/qgis-color-ramp-generator-plugin/releases/download/2.0/color_ramp-2.0.zip).
+1. Download [`color_ramp-0.3.zip`](https://github.com/Heed725/qgis-color-ramp-generator-plugin/releases/download/0.3/color_ramp-0.3.zip).
 2. In QGIS, open **Plugins → Manage and Install Plugins**.
 3. Select **Install from ZIP**, choose the downloaded file and install it.
 4. Enable **QGIS Color Ramp Generator** if QGIS does not enable it

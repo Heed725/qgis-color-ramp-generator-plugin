@@ -3,7 +3,7 @@ name=QGIS Color Ramp Generator
 qgisMinimumVersion=3.0
 qgisMaximumVersion=4.99
 description=Create and export QGIS color ramps from hex palettes with CSV import, XML export, GPL export, and RGBA preview
-version=2.0
+version=0.3
 author=Hemed Lungo
 email=hemedlungo@gmail.com
 repository=https://github.com/Heed725/qgis-color-ramp-generator-plugin
@@ -15,7 +15,7 @@ about=Builds QGIS preset color ramps from hex palettes, including RGBA support, 
 
 # End of mandatory metadata
 
-changelog=Version 2.0 delivers a multi-ramp editor with live RGBA previews, CSV import and template download, individual GPL export, merged QGIS XML export, and matching toolbar and Processing Toolbox access. This release also adds QGIS 3 and QGIS 4 compatibility through Qt 5 and Qt 6 enum handling, removes unused generated UI and resource modules, completes the required repository metadata, and adds automated syntax, security, secret, and code-quality checks together with reproducible release packaging.
+changelog=Version 0.3 delivers a multi-ramp editor with live RGBA previews, CSV import and template download, individual GPL export, merged QGIS XML export, and matching toolbar and Processing Toolbox access. It supports QGIS 3 and QGIS 4 through Qt 5 and Qt 6 compatibility handling, uses safe XML attribute escaping, removes unused generated files, and includes reproducible packaging plus automated syntax, Bandit, secret and Flake8 checks.
 
 # Tags are comma separated with spaces allowed
 tags=style, color ramps, palettes, xml, gpl, csv

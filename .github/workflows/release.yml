@@ -1,4 +1,4 @@
-name: Build version 2.0 release
+name: Build version 0.3 release
 
 on:
   push:
@@ -36,18 +36,18 @@ jobs:
           package_root="package/color_ramp"
           mkdir -p "$package_root"
           cp __init__.py icon.png LICENSE metadata.txt plugin.py README.md "$package_root/"
-          (cd package && zip -r ../color_ramp-2.0.zip color_ramp)
+          (cd package && zip -r ../color_ramp-0.3.zip color_ramp)
 
       - name: Validate package structure and metadata
         shell: bash
         run: |
           set -euo pipefail
-          unzip -t color_ramp-2.0.zip
+          unzip -t color_ramp-0.3.zip
           python - <<'PY'
           import configparser
           import zipfile
 
-          archive = "color_ramp-2.0.zip"
+          archive = "color_ramp-0.3.zip"
           root = "color_ramp/"
           required_files = {root + "__init__.py", root + "metadata.txt"}
           required_keys = {
@@ -72,8 +72,8 @@ jobs:
           missing_keys = required_keys - set(metadata)
           if missing_keys:
               raise SystemExit("Missing metadata keys: " + ", ".join(sorted(missing_keys)))
-          if metadata["version"] != "2.0":
-              raise SystemExit("metadata.txt version must be 2.0")
+          if metadata["version"] != "0.3":
+              raise SystemExit("metadata.txt version must be 0.3")
           PY
 
       - name: Publish release
@@ -82,12 +82,12 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          git tag --force 2.0 "$GITHUB_SHA"
-          git push origin refs/tags/2.0 --force
-          notes='Version 2.0 delivers a multi-ramp editor with live RGBA previews, CSV import and template download, individual GPL export, merged QGIS XML export, and matching toolbar and Processing Toolbox access. This release also adds QGIS 3 and QGIS 4 compatibility through Qt 5 and Qt 6 enum handling, removes unused generated UI and resource modules, completes the required repository metadata, and adds automated syntax, security, secret, and code-quality checks together with reproducible release packaging.'
-          if gh release view 2.0 >/dev/null 2>&1; then
-            gh release upload 2.0 color_ramp-2.0.zip --clobber
-            gh release edit 2.0 --title "QGIS Color Ramp Generator 2.0" --notes "$notes"
+          git tag --force 0.3 "$GITHUB_SHA"
+          git push origin refs/tags/0.3 --force
+          notes='Version 0.3 delivers a multi-ramp editor with live RGBA previews, CSV import and template download, individual GPL export, merged QGIS XML export, and matching toolbar and Processing Toolbox access. It supports QGIS 3 and QGIS 4 through Qt 5 and Qt 6 compatibility handling, uses safe XML attribute escaping, removes unused generated files, and includes reproducible packaging plus automated syntax, Bandit, secret and Flake8 checks.'
+          if gh release view 0.3 >/dev/null 2>&1; then
+            gh release upload 0.3 color_ramp-0.3.zip --clobber
+            gh release edit 0.3 --latest --title "QGIS Color Ramp Generator 0.3" --notes "$notes"
           else
-            gh release create 2.0 color_ramp-2.0.zip --target "$GITHUB_SHA" --title "QGIS Color Ramp Generator 2.0" --notes "$notes"
+            gh release create 0.3 color_ramp-0.3.zip --latest --target "$GITHUB_SHA" --title "QGIS Color Ramp Generator 0.3" --notes "$notes"
           fi
