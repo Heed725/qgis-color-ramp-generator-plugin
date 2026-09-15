@@ -87,6 +87,17 @@ The repository intentionally excludes generated PyQt5-only UI modules,
 compiled resources, cached files and old ZIP archives. The release workflow
 packages only the files needed by QGIS.
 
+## Changelog
+
+Version 0.3 introduces a multi-ramp editor with live RGB and RGBA previews,
+CSV palette import and template download, individual GPL export, combined QGIS
+XML export, and consistent access from the toolbar, Plugins menu and Processing
+Toolbox. It adds compatibility handling for QGIS 3 and QGIS 4 with Qt 5 and Qt
+6, replaces the flagged XML helper with safe attribute escaping, removes unused
+generated UI and resource files, completes the required plugin metadata, and
+adds reproducible release packaging with automated Python compilation, Bandit,
+detect-secrets and Flake8 checks.
+
 ## Support
 
 Report bugs or request improvements in

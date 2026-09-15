@@ -84,7 +84,7 @@ jobs:
           set -euo pipefail
           git tag --force 0.3 "$GITHUB_SHA"
           git push origin refs/tags/0.3 --force
-          notes='Version 0.3 delivers a multi-ramp editor with live RGBA previews, CSV import and template download, individual GPL export, merged QGIS XML export, and matching toolbar and Processing Toolbox access. It supports QGIS 3 and QGIS 4 through Qt 5 and Qt 6 compatibility handling, uses safe XML attribute escaping, removes unused generated files, and includes reproducible packaging plus automated syntax, Bandit, secret and Flake8 checks.'
+          notes='Version 0.3 introduces a multi-ramp editor with live RGB and RGBA previews, CSV palette import and template download, individual GPL export, combined QGIS XML export, and consistent access from the toolbar, Plugins menu and Processing Toolbox. It adds compatibility handling for QGIS 3 and QGIS 4 with Qt 5 and Qt 6, replaces the flagged XML helper with safe attribute escaping, removes unused generated UI and resource files, completes the required plugin metadata, and adds reproducible release packaging with automated Python compilation, Bandit, detect-secrets and Flake8 checks.'
           if gh release view 0.3 >/dev/null 2>&1; then
             gh release upload 0.3 color_ramp-0.3.zip --clobber
             gh release edit 0.3 --latest --title "QGIS Color Ramp Generator 0.3" --notes "$notes"
